@@ -6,13 +6,13 @@ import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 
 import com.devbruno.fastshop.R;
-import com.devbruno.fastshop.presentation.genres.GenresContract;
-import com.devbruno.fastshop.presentation.genres.GenresPresenter;
+import com.devbruno.fastshop.presentation.drawer.DrawerContract;
+import com.devbruno.fastshop.presentation.drawer.DrawerPresenter;
 import com.devbruno.fastshop.presentation.home.HomeActivity;
 import com.devbruno.fastshop.presentation.home.HomeContract;
 import com.devbruno.fastshop.presentation.home.HomePresenter;
-import com.devbruno.fastshop.presentation.models.MovieItemContract;
-import com.devbruno.fastshop.presentation.models.MovieItemPresenter;
+import com.devbruno.fastshop.presentation.movieitem.MovieItemContract;
+import com.devbruno.fastshop.presentation.movieitem.MovieItemPresenter;
 
 /**
  * Created by bsilvabr on 10/02/2018.
@@ -31,9 +31,9 @@ public class BaseActivity extends AppCompatActivity {
         } else if (fragment instanceof MovieItemContract.View) {
             MovieItemContract.View view = (MovieItemContract.View) fragment;
             view.setPresenter(new MovieItemPresenter(view));
-        } else if (fragment instanceof GenresContract.View) {
-            GenresContract.View view = (GenresContract.View) fragment;
-            view.setPresenter(new GenresPresenter(view));
+        } else if (fragment instanceof DrawerContract.View) {
+            DrawerContract.View view = (DrawerContract.View) fragment;
+            view.setPresenter(new DrawerPresenter(view));
         }
     }
 
@@ -57,8 +57,8 @@ public class BaseActivity extends AppCompatActivity {
     public void initFragment(Fragment fragment, String tag, Activity activity) {
         final android.support.v4.app.FragmentManager fm = getSupportFragmentManager();
         final android.support.v4.app.FragmentTransaction ft = fm.beginTransaction();
-        ft.setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_left,
-                R.anim.slide_in_left, R.anim.slide_out_left)
+        ft.setCustomAnimations(R.anim.fade_in, R.anim.fade_out,
+                R.anim.fade_in, R.anim.fade_out)
                 .add(R.id.frame_contaner, fragment, tag)
                 .addToBackStack(tag)
                 .commit();

@@ -8,16 +8,16 @@ import java.util.List;
  * Created by bsilvabr on 12/02/2018.
  */
 
-public class GenresResponse {
+public class DrawerResponse {
 
     @SerializedName("genres")
-    private List<Genres> genres;
+    private List<DrawerItens> genres;
 
-    public List<Genres> getGenres() {
+    public List<DrawerItens> getGenres() {
         return genres;
     }
 
-    public void setGenres(List<Genres> genres) {
+    public void setGenres(List<DrawerItens> genres) {
         this.genres = genres;
     }
 

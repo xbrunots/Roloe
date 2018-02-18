@@ -1,4 +1,4 @@
-package com.devbruno.fastshop.presentation.genres;
+package com.devbruno.fastshop.presentation.drawer;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -9,10 +9,9 @@ import com.devbruno.fastshop.R;
 import com.devbruno.fastshop.infraestruture.Constants;
 import com.devbruno.fastshop.infraestruture.Repository.ApiClient;
 import com.devbruno.fastshop.infraestruture.Repository.ApiInterface;
-import com.devbruno.fastshop.model.Genres;
-import com.devbruno.fastshop.model.GenresResponse;
-import com.devbruno.fastshop.presentation.genres.adapter.GenreAdapter;
-import com.devbruno.fastshop.presentation.home.HomeActivity;
+import com.devbruno.fastshop.model.DrawerItens;
+import com.devbruno.fastshop.model.DrawerResponse;
+import com.devbruno.fastshop.presentation.drawer.adapter.DrawerAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,15 +26,15 @@ import static com.devbruno.fastshop.infraestruture.ConnectionUtils.isOnline;
  * Created by bsilvabr on 12/02/2018.
  */
 
-public class GenresPresenter implements GenresContract.Presenter {
+public class DrawerPresenter implements DrawerContract.Presenter {
 
-    private GenresContract.View mView;
+    private DrawerContract.View mView;
     private Context mContext;
-    private HomeActivity mActivity;
+    private DrawerActivity mActivity;
     private Context context;
-    ArrayList<Genres> genresArrayList;
-    private GenreAdapter genreAdapter;
-    private List<Genres> genres;
+    ArrayList<DrawerItens> drawerItensArrayList;
+    private DrawerAdapter drawerAdapter;
+    private List<DrawerItens> genres;
 
     @Override
     public void getGenres() {
@@ -56,16 +55,16 @@ public class GenresPresenter implements GenresContract.Presenter {
         ApiInterface apiService =
                 ApiClient.getClient().create(ApiInterface.class);
 
-        Call<GenresResponse> call = apiService.getGenres(Constants.API_KEY);
-        call.enqueue(new Callback<GenresResponse>() {
+        Call<DrawerResponse> call = apiService.getGenres(Constants.API_KEY);
+        call.enqueue(new Callback<DrawerResponse>() {
             @Override
-            public void onResponse(Call<GenresResponse> call, Response<GenresResponse> response) {
+            public void onResponse(Call<DrawerResponse> call, Response<DrawerResponse> response) {
                 int statusCode = response.code();
                 if (statusCode == 200 && isOnline(mContext)) {
                     Log.e(Constants.TAG_GENERIC, response.raw().toString());
                     genres = response.body().getGenres();
-                    genreAdapter = new GenreAdapter(genres, R.layout.item_genre, mContext);
-                    mView.getRecyclerView().setAdapter(genreAdapter);
+                    drawerAdapter = new DrawerAdapter(genres, R.layout.item_genre, mContext);
+                    mView.getRecyclerView().setAdapter(drawerAdapter);
                 } else {
                     mView.alertErroApi();
                 }
@@ -73,7 +72,7 @@ public class GenresPresenter implements GenresContract.Presenter {
             }
 
             @Override
-            public void onFailure(Call<GenresResponse> call, Throwable t) {
+            public void onFailure(Call<DrawerResponse> call, Throwable t) {
                 // Log error here since request failed
                 Log.e(Constants.TAG_GENERIC, t.toString());
                 mView.hideLoading();
@@ -82,8 +81,13 @@ public class GenresPresenter implements GenresContract.Presenter {
     }
 
     @Override
-    public GenreAdapter getGenreAdapter() {
-        return genreAdapter;
+    public DrawerAdapter getDrawerAdapter() {
+        return drawerAdapter;
+    }
+
+    @Override
+    public void onBackPressed() {
+        mActivity.onBackPressed();
     }
 
     @Override
@@ -91,10 +95,10 @@ public class GenresPresenter implements GenresContract.Presenter {
 
     }
 
-    public GenresPresenter(@NonNull final GenresContract.View view) {
+    public DrawerPresenter(@NonNull final DrawerContract.View view) {
         mView = view;
         mContext = view.getContext();
-        mActivity = (HomeActivity) mContext;
+        mActivity = (DrawerActivity) mContext;
     }
 
     @Override

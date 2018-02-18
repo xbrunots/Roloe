@@ -9,14 +9,14 @@ import java.util.List;
  * Created by bsilvabr on 12/02/2018.
  */
 
-public class Genres implements Serializable {
+public class DrawerItens implements Serializable {
     @SerializedName("id")
     private int id;
 
     @SerializedName("name")
     private String name;
 
-    public Genres(int id, String name) {
+    public DrawerItens(int id, String name) {
         this.id = id;
         this.name = name;
     }

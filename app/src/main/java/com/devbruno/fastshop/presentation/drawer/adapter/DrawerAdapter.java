@@ -1,4 +1,4 @@
-package com.devbruno.fastshop.presentation.genres.adapter;
+package com.devbruno.fastshop.presentation.drawer.adapter;
 
 import android.annotation.TargetApi;
 import android.content.Context;
@@ -13,7 +13,8 @@ import android.widget.LinearLayout;
 
 import com.devbruno.fastshop.R;
 import com.devbruno.fastshop.infraestruture.Constants;
-import com.devbruno.fastshop.model.Genres;
+import com.devbruno.fastshop.model.DrawerItens;
+import com.devbruno.fastshop.presentation.drawer.DrawerActivity;
 import com.devbruno.fastshop.presentation.home.HomeActivity;
 
 import java.util.List;
@@ -22,10 +23,10 @@ import java.util.List;
  * Created by bsilvabr on 12/02/2018.
  */
 
-public class GenreAdapter extends RecyclerView.Adapter<GenreAdapter.GenreAdapterViewHolder> {
+public class DrawerAdapter extends RecyclerView.Adapter<DrawerAdapter.GenreAdapterViewHolder> {
 
-    private final HomeActivity mActivity;
-    public List<Genres> genres;
+    private final DrawerActivity mActivity;
+    public List<DrawerItens> genres;
     private int rowLayout;
     private Context context;
 
@@ -41,22 +42,22 @@ public class GenreAdapter extends RecyclerView.Adapter<GenreAdapter.GenreAdapter
         }
     }
 
-    public GenreAdapter(List<Genres> genres, int rowLayout, Context context) {
+    public DrawerAdapter(List<DrawerItens> genres, int rowLayout, Context context) {
         this.genres = genres;
         this.rowLayout = rowLayout;
         this.context = context;
-        this.mActivity = (HomeActivity) context;
+        this.mActivity = (DrawerActivity) context;
     }
 
     @Override
-    public GenreAdapter.GenreAdapterViewHolder onCreateViewHolder(ViewGroup parent,
-                                                                  int viewType) {
+    public DrawerAdapter.GenreAdapterViewHolder onCreateViewHolder(ViewGroup parent,
+                                                                   int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(rowLayout, parent, false);
-        return new GenreAdapter.GenreAdapterViewHolder(view);
+        return new DrawerAdapter.GenreAdapterViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(final GenreAdapter.GenreAdapterViewHolder holder, final int position) {
+    public void onBindViewHolder(final DrawerAdapter.GenreAdapterViewHolder holder, final int position) {
 
         holder.textView.setText(String.valueOf(genres.get(position).getName()));
 

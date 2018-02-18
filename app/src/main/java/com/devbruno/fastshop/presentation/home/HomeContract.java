@@ -2,7 +2,7 @@ package com.devbruno.fastshop.presentation.home;
 
 import android.support.v7.widget.RecyclerView;
 
-import com.devbruno.fastshop.model.Genres;
+import com.devbruno.fastshop.model.DrawerItens;
 import com.devbruno.fastshop.presentation.BasePresenter;
 import com.devbruno.fastshop.presentation.BaseView;
 import com.devbruno.fastshop.presentation.home.adapter.MoviesAdapter;
@@ -23,8 +23,9 @@ public class HomeContract {
 
         void hideSearch();
 
-        Genres getGenres();
+        DrawerItens getDrawerItens();
 
+        void closeGenresDrawer();
         void hideGenreTitle();
 
         void setGenreTitle(String name);
@@ -32,7 +33,6 @@ public class HomeContract {
 
     interface Presenter extends BasePresenter {
         void getMovies();
-
         void getGenresDrawer();
 
         MoviesStoriesAdapter getMovieStoriesAdapter();

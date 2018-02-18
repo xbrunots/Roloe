@@ -1,10 +1,7 @@
 package com.devbruno.fastshop.infraestruture.Repository;
 
-import com.devbruno.fastshop.model.Genres;
-import com.devbruno.fastshop.model.GenresResponse;
+import com.devbruno.fastshop.model.DrawerResponse;
 import com.devbruno.fastshop.model.MoviesResponse;
-
-import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
@@ -25,7 +22,7 @@ public interface ApiInterface {
 
 
     @GET("/3/genre/movie/list")
-    Call<GenresResponse> getGenres(@Query("api_key") String apiKey);
+    Call<DrawerResponse> getGenres(@Query("api_key") String apiKey);
 
 }
 

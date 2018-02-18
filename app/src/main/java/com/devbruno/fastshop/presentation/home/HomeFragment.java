@@ -23,7 +23,7 @@ import android.widget.Toast;
 import com.devbruno.fastshop.R;
 import com.devbruno.fastshop.infraestruture.Constants;
 import com.devbruno.fastshop.infraestruture.ScreenUtils;
-import com.devbruno.fastshop.model.Genres;
+import com.devbruno.fastshop.model.DrawerItens;
 import com.devbruno.fastshop.presentation.BaseFragment;
 import com.devbruno.fastshop.presentation.custom.CustomLoadingDialog;
 
@@ -40,8 +40,10 @@ public class HomeFragment extends BaseFragment implements HomeContract.View {
     private ImageButton imageButtonDrawerGenres, imageButtonDrawerGenres2, imageButtonLupa, imageButtonSair;
     private LinearLayout main;
     private LinearLayout linearLayoutShowSearch, linearLayoutHideSearch;
-    private Genres genres;
+    private DrawerItens drawerItens;
     private TextView genreTitle;
+    private View rootView;
+    public static HomeFragment homeFragment;
 
     public static HomeFragment newInstance(CharSequence screenTitle) {
         HomeFragment fragment = new HomeFragment();
@@ -50,8 +52,12 @@ public class HomeFragment extends BaseFragment implements HomeContract.View {
         args.putCharSequence(Constants.ARGUMENT_TITLE, screenTitle);
 
         fragment.setArguments(args);
-
+        homeFragment = fragment;
         return fragment;
+    }
+
+    public static HomeFragment getHomeFragment() {
+        return homeFragment;
     }
 
     @Override
@@ -64,11 +70,11 @@ public class HomeFragment extends BaseFragment implements HomeContract.View {
     @Override
     public void onResume() {
         super.onResume();
-        mPresenter.getMovies();
+       // mPresenter.getMovies();
     }
 
-    public Genres getGenres() {
-        return genres;
+    public DrawerItens getDrawerItens() {
+        return drawerItens;
     }
 
     @Override
@@ -83,14 +89,22 @@ public class HomeFragment extends BaseFragment implements HomeContract.View {
     }
 
     @Override
+    public void closeGenresDrawer() {
+        recyclerView.clearAnimation();
+        recyclerViewEstories.clearAnimation();
+        recyclerView.startAnimation(AnimationUtils.loadAnimation(recyclerView.getContext(), R.anim.move_all_l));
+        recyclerViewEstories.startAnimation(AnimationUtils.loadAnimation(recyclerViewEstories.getContext(), R.anim.move_all_l));
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_home, container, false);
+        rootView = inflater.inflate(R.layout.fragment_home, container, false);
 
         Intent intent = getActivity().getIntent();
         if (intent.getExtras() != null) {
-            genres = (Genres) intent.getSerializableExtra(Constants.ARGUMENT_GENRES);
+            drawerItens = (DrawerItens) intent.getSerializableExtra(Constants.ARGUMENT_GENRES);
         } else {
-            genres = null;
+            drawerItens = null;
         }
 
         initViews(rootView);
@@ -247,9 +261,9 @@ public class HomeFragment extends BaseFragment implements HomeContract.View {
         imageButtonDrawerGenres.clearAnimation();
         linearLayoutHideSearch.setVisibility(View.GONE);
         linearLayoutShowSearch.setVisibility(View.VISIBLE);
-        linearLayoutShowSearch.startAnimation(AnimationUtils.loadAnimation(linearLayoutShowSearch.getContext(), R.anim.movedown));
-        imageButtonSair.startAnimation(AnimationUtils.loadAnimation(imageButtonLupa.getContext(), R.anim.move_to_left));
-        imageButtonDrawerGenres.startAnimation(AnimationUtils.loadAnimation(imageButtonLupa.getContext(), R.anim.move_to_right));
+        linearLayoutShowSearch.startAnimation(AnimationUtils.loadAnimation(linearLayoutShowSearch.getContext(), R.anim.slide_in_bottom_decelerate));
+        imageButtonSair.startAnimation(AnimationUtils.loadAnimation(imageButtonSair.getContext(), R.anim.rotate_norepeat));
+        imageButtonDrawerGenres.startAnimation(AnimationUtils.loadAnimation(imageButtonDrawerGenres.getContext(), R.anim.move_to_right));
 
         editTextFinder.setFocusable(true);
         editTextFinder.requestFocus();
@@ -265,9 +279,9 @@ public class HomeFragment extends BaseFragment implements HomeContract.View {
         linearLayoutShowSearch.setVisibility(View.GONE);
         InputMethodManager imm = (InputMethodManager) mActivity.getSystemService(Activity.INPUT_METHOD_SERVICE);
         imm.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0);
-        linearLayoutHideSearch.startAnimation(AnimationUtils.loadAnimation(linearLayoutHideSearch.getContext(), R.anim.movedown));
-        imageButtonLupa.startAnimation(AnimationUtils.loadAnimation(imageButtonLupa.getContext(), R.anim.move_to_left));
-        imageButtonDrawerGenres2.startAnimation(AnimationUtils.loadAnimation(imageButtonLupa.getContext(), R.anim.move_to_right));
+        linearLayoutHideSearch.startAnimation(AnimationUtils.loadAnimation(linearLayoutHideSearch.getContext(), R.anim.slide_in_bottom_decelerate));
+        imageButtonLupa.startAnimation(AnimationUtils.loadAnimation(imageButtonLupa.getContext(), R.anim.movedown));
+        imageButtonDrawerGenres2.startAnimation(AnimationUtils.loadAnimation(imageButtonDrawerGenres2.getContext(), R.anim.move_to_right));
 
         editTextFinder.setText("");
     }

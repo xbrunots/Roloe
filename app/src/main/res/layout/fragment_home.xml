@@ -92,8 +92,13 @@
                 <ImageView
                     android:layout_width="150dp"
                     android:layout_height="40dp"
-                    android:scaleType="fitXY"
-                    app:srcCompat="@drawable/fastheader" />
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="166dp"
+                    android:layout_marginRight="166dp"
+                    android:layout_toLeftOf="@+id/imageButtonLupa"
+                    android:layout_toStartOf="@+id/imageButtonLupa"
+                    android:scaleType="centerCrop"
+                    app:srcCompat="@drawable/logosuperfit" />
 
                 <ImageButton
                     android:id="@+id/imageButtonLupa"
