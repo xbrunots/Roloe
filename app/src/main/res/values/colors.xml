@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimaryDark">#141414</color>
-    <color name="colorPrimary">#212121</color>
+    <color name="colorPrimaryDark">#933c94</color>
+    <color name="colorPrimary">#933c94</color>
 
-    <color name="colorAccent">#c31639</color>
-    <color name="colorAccentDark">#b71536</color>
-
+    <color name="colorAccent">#21d6d3</color>
+    <color name="colorAccentDark">#FF1597B7</color>
 
     <color name="colorPayButton">#1597b7</color>
 
@@ -23,5 +22,8 @@
     <color name="dark_gray_generic_text_color">#5B5149</color>
     <color name="light_gray_generic_text_color">#847E79</color>
     <color name="colorDisable">#77212121</color>
+    <color name="fundogeral">#f0f0f0</color>
+    <color name="colorTexts">#565656</color>
+    <color name="colorSubTitles">#8a8a8a</color>
 
 </resources>

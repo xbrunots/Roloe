@@ -1,4 +1,4 @@
-package com.devbruno.fastshop;
+package com.devbruno.superfit;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

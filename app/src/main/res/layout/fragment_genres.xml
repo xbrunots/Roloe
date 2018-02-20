@@ -4,27 +4,25 @@
     android:id="@+id/laymain"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/transparent"
+    android:background="@drawable/android_gradient_list"
     android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/colorPrimaryDark"
         android:elevation="10dp"
         android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorPrimaryDark"
             android:gravity="center_vertical|center_horizontal"
             android:orientation="horizontal">
 
             <ImageButton
                 android:id="@+id/imageButton"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
                 android:background="@color/transparent"
                 android:foregroundGravity="center_vertical|fill_vertical|center_horizontal"
                 app:srcCompat="@drawable/ic_clear_black_24dp" />
@@ -36,7 +34,6 @@
                 android:layout_alignTop="@+id/imageButton"
                 android:layout_toEndOf="@+id/imageButton"
                 android:layout_toRightOf="@+id/imageButton"
-                android:background="@color/colorPrimaryDark"
                 android:ems="10"
                 android:text="@string/genre_title"
                 android:textAllCaps="true"
@@ -49,16 +46,15 @@
             android:id="@+id/linearLayout2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorPrimaryDark"
             android:gravity="left|center_vertical|center_horizontal"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:visibility="gone">
 
             <ImageView
                 android:id="@+id/imageView2"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:layout_marginLeft="20dp"
-                android:background="@color/colorPrimaryDark"
                 app:srcCompat="@drawable/ic_person_black_24dp" />
 
             <LinearLayout
@@ -74,7 +70,6 @@
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     android:layout_weight="1"
-                    android:background="@color/colorPrimaryDark"
                     android:gravity="center_vertical|center_horizontal"
                     android:paddingLeft="11dp"
                     android:text="Bruno Brito"
@@ -90,7 +85,7 @@
             android:id="@+id/genre_recycler_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/colorPrimaryDark"
+            android:background="@color/fundogeral"
             android:paddingLeft="10dp"
             android:paddingRight="10dp" />
 

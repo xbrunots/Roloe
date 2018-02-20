@@ -66,7 +66,7 @@
                     android:textSize="16sp"
                     android:textStyle="bold" />
 
-                <com.devbruno.fastshop.presentation.custom.CustomRateView
+                <com.devbruno.superfit.presentation.custom.CustomRateView
                     android:id="@+id/customrateview"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent" />

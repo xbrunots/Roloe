@@ -4,155 +4,185 @@
     android:id="@+id/linearMain"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimaryDark"
+    android:background="@color/fundogeral"
     android:orientation="vertical">
 
     <LinearLayout
-        android:id="@+id/linearFindEnable"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:layout_marginTop="10dp"
-        android:gravity="center_vertical|center_horizontal"
-        android:orientation="horizontal"
-        android:visibility="visible">
-
-        <ImageButton
-            android:id="@+id/imageButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@color/transparent"
-            android:foregroundGravity="center_vertical|fill_vertical|center_horizontal"
-            android:padding="10dp"
-            app:srcCompat="@drawable/ic_dehaze_black_24dp" />
+        android:background="@drawable/gradient_2"
+        android:elevation="10dp"
+        android:orientation="vertical">
 
         <LinearLayout
+            android:id="@+id/linearFindDisable"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <EditText
-                android:id="@+id/editTextFinder"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_toEndOf="@+id/imageButton"
-                android:layout_toRightOf="@+id/imageButton"
-                android:layout_weight="1"
-                android:ems="10"
-                android:hint="filtrar..."
-                android:inputType="textPersonName"
-                android:textColor="@color/colorWhite"
-                android:textColorHint="@color/colorGreyLight"
-                android:textSize="16sp" />
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="15dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            android:visibility="visible">
 
             <ImageButton
-                android:id="@+id/imageButtonClose"
+                android:id="@+id/imageButton1"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:background="@color/transparent"
                 android:foregroundGravity="center_vertical|fill_vertical|center_horizontal"
-                android:padding="10dp"
-                app:srcCompat="@drawable/ic_clear_black_24dp" />
+                android:paddingLeft="25dp"
+                android:paddingTop="10dp"
+                app:srcCompat="@drawable/ic_dehaze_black_24dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="10dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_width="150dp"
+                        android:layout_height="40dp"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="166dp"
+                        android:layout_marginRight="166dp"
+                        android:layout_toLeftOf="@+id/imageButtonLupa"
+                        android:layout_toStartOf="@+id/imageButtonLupa"
+                        android:scaleType="centerCrop"
+                        app:srcCompat="@drawable/logosuperfit" />
+
+                    <ImageButton
+                        android:id="@+id/imageButtonLupa"
+                        android:layout_width="38dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentTop="true"
+                        android:background="@color/transparent"
+                        android:foregroundGravity="right|center_vertical|fill_vertical|center_horizontal"
+                        android:padding="10dp"
+                        app:srcCompat="@drawable/ic_search_black_24dp" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
 
         </LinearLayout>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/linearFindDisable"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:layout_marginTop="10dp"
-        android:gravity="center_vertical|center_horizontal"
-        android:orientation="horizontal"
-        android:visibility="visible">
-
-        <ImageButton
-            android:id="@+id/imageButton1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@color/transparent"
-            android:foregroundGravity="center_vertical|fill_vertical|center_horizontal"
-            android:padding="10dp"
-            app:srcCompat="@drawable/ic_dehaze_black_24dp" />
 
         <LinearLayout
+            android:id="@+id/linearFindEnable"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            android:visibility="visible">
 
-            <RelativeLayout
+            <ImageButton
+                android:id="@+id/imageButton"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@color/transparent"
+                android:foregroundGravity="center_vertical|fill_vertical|center_horizontal"
+                android:paddingLeft="25dp"
+                app:srcCompat="@drawable/ic_dehaze_black_24dp" />
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
-                <ImageView
-                    android:layout_width="150dp"
-                    android:layout_height="40dp"
-                    android:layout_centerVertical="true"
-                    android:layout_marginEnd="166dp"
-                    android:layout_marginRight="166dp"
-                    android:layout_toLeftOf="@+id/imageButtonLupa"
-                    android:layout_toStartOf="@+id/imageButtonLupa"
-                    android:scaleType="centerCrop"
-                    app:srcCompat="@drawable/logosuperfit" />
+                <EditText
+                    android:id="@+id/editTextFinder"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_toEndOf="@+id/imageButton"
+                    android:layout_toRightOf="@+id/imageButton"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:hint="filtrar..."
+                    android:inputType="textPersonName"
+                    android:textColor="@color/colorWhite"
+                    android:textColorHint="@color/colorGreyLight"
+                    android:textSize="16sp" />
 
                 <ImageButton
-                    android:id="@+id/imageButtonLupa"
-                    android:layout_width="38dp"
+                    android:id="@+id/imageButtonClose"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:layout_alignParentRight="true"
-                    android:layout_alignParentTop="true"
                     android:background="@color/transparent"
-                    android:foregroundGravity="right|center_vertical|fill_vertical|center_horizontal"
+                    android:foregroundGravity="center_vertical|fill_vertical|center_horizontal"
                     android:padding="10dp"
-                    app:srcCompat="@drawable/ic_search_black_24dp" />
+                    app:srcCompat="@drawable/ic_clear_black_24dp" />
 
-            </RelativeLayout>
+            </LinearLayout>
 
         </LinearLayout>
-
     </LinearLayout>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/movies_top_recycler_view"
         android:layout_width="match_parent"
-        android:layout_height="90dp"
-        android:background="@color/colorPrimaryDark"
+        android:layout_height="wrap_content"
+        android:background="@color/fundogeral"
         android:orientation="horizontal"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp">
+        android:visibility="gone">
 
     </android.support.v7.widget.RecyclerView>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/fundogeral"
+        android:gravity="center_vertical|center_horizontal"
         android:orientation="vertical"
         android:visibility="visible">
 
-        <TextView
-            android:id="@+id/textViewGenreTitle"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingBottom="5dp"
-            android:paddingTop="5dp"
-            android:text="ROMANCES"
-            android:textAlignment="center"
-            android:textColor="@color/colorWhite"
-            android:visibility="gone" />
-    </LinearLayout>
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/movies_recycler_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/colorPrimaryDark"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp">
+            android:layout_height="match_parent"
+            android:gravity="fill_vertical|center_horizontal">
 
-    </android.support.v7.widget.RecyclerView>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:elevation="1dp"
+                android:gravity="center_vertical|center_horizontal"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textViewGenreTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/tagsbg"
+                    android:elevation="5dp"
+                    android:foregroundGravity="center_vertical|center_horizontal"
+                    android:paddingBottom="5dp"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
+                    android:paddingTop="5dp"
+                    android:text="ROMANCES"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorAccentDark"
+                    android:visibility="visible" />
+            </LinearLayout>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/movies_recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/fundogeral">
+
+            </android.support.v7.widget.RecyclerView>
+
+        </RelativeLayout>
+    </LinearLayout>
+
 </LinearLayout>
